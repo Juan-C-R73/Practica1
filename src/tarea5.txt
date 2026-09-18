@@ -1,0 +1,32 @@
+#include <Arduino.h>
+#include <Wire.h>
+
+// 1. Declaramos la función de recepción ANTES del setup()
+void receiveEvent(int howMany) {
+  // Leemos mientras haya datos disponibles
+  while (Wire.available()) {
+    char c = Wire.read(); 
+    
+    if (c == '0') {
+      digitalWrite(LED_BUILTIN, LOW);  // Apaga el LED
+    } 
+    else if (c == '1') {
+      digitalWrite(LED_BUILTIN, HIGH); // Enciende el LED
+    }
+  }
+}
+
+void setup() {
+  // 2. Configuramos el LED integrado como salida
+  pinMode(LED_BUILTIN, OUTPUT);
+  
+  Wire.begin(8);                // Nos unimos al bus I2C con la dirección #8
+  Wire.onReceive(receiveEvent); // Asignamos la función que se ejecutará al recibir datos
+}
+
+// 3. Función loop obligatoria (aunque no hagamos nada aquí)
+void loop() {
+  // El microcontrolador se queda esperando de forma infinita.
+  // Cuando el Maestro envíe algo por I2C, la función receiveEvent saltará automáticamente.
+  delay(100);
+}
