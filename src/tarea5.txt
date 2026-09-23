@@ -24,7 +24,7 @@ void setup() {
   Wire.onReceive(receiveEvent); // Asignamos la función que se ejecutará al recibir datos
 }
 
-// 3. Función loop obligatoria (aunque no hagamos nada aquí)
+// 3. Función loop obligatoria 
 void loop() {
   // El microcontrolador se queda esperando de forma infinita.
   // Cuando el Maestro envíe algo por I2C, la función receiveEvent saltará automáticamente.

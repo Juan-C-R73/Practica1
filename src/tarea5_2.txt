@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-/* Declaramos la función ANTES de usarla para que C++ no dé error */
+/* Declaramos la función antes de usarla*/
 int readSerial(char result[]) {
   int i = 0;
   while (1) {
@@ -29,7 +29,7 @@ void setup() {
 void loop() {
   Serial.print("Escribe 0 para apagar el LED, o 1 para encenderlo: ");
   
-  // CORRECCIÓN: Le damos un tamaño de 10 caracteres para que no desborde la memoria
+  
   char ledVal[10]; 
   
   readSerial(ledVal);
