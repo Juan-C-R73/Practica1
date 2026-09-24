@@ -23,7 +23,7 @@ void setup() {
 }
 
 void loop() {
-  unsigned long tiempoActual = millis();
+  unsigned long tiempoActual = millis(); // función que lee los ms desde que la placa recibe energía
   
   // Comprobamos si han pasado 100 milisegundos
   if (tiempoActual - tiempoAnterior >= 100) {
